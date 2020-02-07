@@ -1,0 +1,11 @@
+turtle
+nltk.corpus import stopwords
+nltk.stem.porter, PorterStemmer
+time
+re
+nltk
+pyglet
+sklearn.externals, joblib
+playsound, playsound
+
+geckodriver.exe in python PATH directory
