@@ -57,6 +57,6 @@ y_pred = list(classifier.predict(X_test))
 for i in range(200):
     y_pred = le.inverse_transform(y_pred)
 
-
+y_pred = pd.DataFrame(y_pred)
 
 
