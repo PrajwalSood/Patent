@@ -39,7 +39,7 @@ xtrain, xtest, ytrain, ytest = train_test_split(X_train ,y_train, test_size = 0.
 
 from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier()
-classifier.fit(xtrain, ytrain)
+classifier.fit(X_train, y_train)
 
 y_pred_gnb = classifier.predict(xtest)
 acc_gnb = round(classifier.score(xtrain, ytrain) * 100, 2)
@@ -54,4 +54,8 @@ report = pd.m.classification_report(ytest, y_pred_gnb)
 
 m.f1_score(ytest, y_pred_gnb, average = None)
 
+from sklearn.externals import joblib
+joblib.dump(classifier, 'my_model.pkl', compress=9)
+joblib.dump(cv, 'cv.pkl', compress=9)
+joblib.dump(le, 'le.pkl', compress=9)
 
