@@ -7,7 +7,7 @@ y_train = np.array(data1['Label'])
 X_train = data1.drop('Label', axis = 1)
 X_train = X_train.drop('Publication Number', axis =1)
 X_test = pd.read_csv('predictions.csv')
-X_test = X_test['Title']
+X_test = pd.DataFrame(X_test['Title'])
 import re
 import nltk
 
