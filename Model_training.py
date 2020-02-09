@@ -32,15 +32,15 @@ X_train = cv.fit_transform(X_train['Title']).toarray()
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 y_train = le.fit_transform(y_train)
-
+'''
 from sklearn.model_selection import train_test_split
 xtrain, xtest, ytrain, ytest = train_test_split(X_train ,y_train, test_size = 0.2, random_state = 0)
-
+'''
 
 from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier()
 classifier.fit(X_train, y_train)
-
+'''
 y_pred_gnb = classifier.predict(xtest)
 acc_gnb = round(classifier.score(xtrain, ytrain) * 100, 2)
 print (acc_gnb) #96.98
@@ -50,10 +50,10 @@ ytest = le.inverse_transform(ytest)
 import sklearn.metrics as m
 cf_svc = m.confusion_matrix(ytest, y_pred_gnb)
 
-report = pd.m.classification_report(ytest, y_pred_gnb)
+report = m.classification_report(ytest, y_pred_gnb)
 
 m.f1_score(ytest, y_pred_gnb, average = None)
-
+'''
 from sklearn.externals import joblib
 joblib.dump(classifier, 'my_model.pkl', compress=9)
 joblib.dump(cv, 'cv.pkl', compress=9)
